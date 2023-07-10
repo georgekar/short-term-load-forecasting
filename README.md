@@ -6,7 +6,8 @@ and gas usage per minute per household. All participating households specified t
 research and the data of this project was collected in accordance with a privacy-by-design approach.
 
 Raw data can be downloaded through the link [GridFlexHeeten](https://data.4tu.nl/articles/dataset/Energy_consumption_data_of_the_GridFlex_Heeten_project/14447257/1?file=27671892).
-The size of the downloaded csv is ~62GB and should be stored under the folder [raw_data](raw_data).
+The size of the downloaded csv is ~62GB and should be stored under the folder raw_data. Please create the folder if not
+exists.
 
 Weather data for the respective period have been retrieved from weather station 278 – Heino, which is 15km from 
 the houses. Source: Royal Dutch Meteorological Institute [KNMI](https://www.knmi.nl/nederland-nu/klimatologie/uurgegevens).

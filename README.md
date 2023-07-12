@@ -44,9 +44,13 @@ Result will be stored under plots folder. Here is an example of house 3:
 
 ## Data cleaning
 
-1. Run script [Replace long periods](data_cleaning/replace-long-period-missing-data.py) for replacing missing periods > 1 week. Example args: --house 3 --missing_data_start_date '2019-04-03 21:00:00' --missing_data_end_date '2019-04-04 21:00:00' --replace_data_start_date '2020-04-03 21:00:00' --replace_data_end_date '2020-04-04 21:00:00'.
-2. Run script [Replace missing values and outlier smoothing](data_cleaning/missing-values-replacement-and-outlier-smoothing.py) Missing values is applied for periods <= 1 week. Smoothing is applied on the whole IMPORT_KW.
+1. Run script [Replace long periods](src/data_cleaning/replace-long-period-missing-data.py) for replacing missing periods > 1 week. Example args: --house 3 --missing_data_start_date '2019-04-03 21:00:00' --missing_data_end_date '2019-04-04 21:00:00' --replace_data_start_date '2020-04-03 21:00:00' --replace_data_end_date '2020-04-04 21:00:00'.
+2. Run script [Replace missing values and outlier smoothing](src/data_cleaning/missing-values-replacement-and-outlier-smoothing.py) Missing values is applied for periods <= 1 week. Smoothing is applied on the whole IMPORT_KW.
 3. Run script [Plot house data](src/data_visualization/plot_house_data.py) to visualise cleaned houses.
+
+Result will be stored under plots folder. Here is house 3 after cleaning process:
+
+![House 3 cleaned](plots/house_plots/cleaned/house3.png)
 
 ## Time series analysis
 

@@ -25,7 +25,7 @@ def main():
     replace_data_start_date = args.replace_data_start_date
     replace_data_end_date = args.replace_data_end_date
     # load dataset
-    df = pd.read_csv(r'../house_data/uncleaned/house{}.csv'.format(house), parse_dates=['timestamp'],
+    df = pd.read_csv(r'../../data/house_data_uncleaned/house{}.csv'.format(house), parse_dates=['timestamp'],
                      index_col='timestamp')
 
     replace_data_df = df.loc[replace_data_start_date:replace_data_end_date]
@@ -34,7 +34,7 @@ def main():
         coefficients.append(random.uniform(-1.0, 1.0))
     coefficients = abs(replace_data_df['IMPORT_KW'].values + coefficients)
     df.loc[missing_data_start_date:missing_data_end_date, 'IMPORT_KW'] = coefficients
-    df.to_csv('../house_data/cleaned/house{}.csv'.format(house))
+    df.to_csv('../../data/house_data_cleaned/house{}.csv'.format(house))
 
 
 if __name__ == '__main__':

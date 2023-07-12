@@ -65,4 +65,4 @@ For a thorough timeseries analysis follow the respective notebook [Timeseries an
 ## Short-term load forecasting models
 
 1. Run script [Sarimax](src/sarimax/sarimax_short-term-load-forecasting.py) --train True for creating and storing a Sarimax model.
-2. Run script [LSTM](LSTM/LSTM-short-term-load-forecasting.py) using model_type either vanilla or encoder_decoder. Provide also the respective arguments.
+2. Run script [LSTM](src/LSTM/LSTM-short-term-load-forecasting.py) using model_type either vanilla or encoder_decoder. Provide also the respective arguments.

@@ -1,7 +1,6 @@
 import argparse
 import os
 import sys
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -12,10 +11,6 @@ from pandas import concat
 from pandas import read_csv
 from sklearn import metrics
 from sklearn.preprocessing import StandardScaler
-
-FILE = Path(__file__).resolve()
-ROOT = str(FILE.parents[0])
-PLOTS = ROOT + "LSTM/plots/"
 
 
 def parse_opt():
@@ -76,7 +71,7 @@ def plot_pred_vs_true_augsut2020(path, test_house, y_true, y_pred, rmse):
     if not os.path.exists(path):
         print("Results will be stored under: " + path)
         os.makedirs(path)
-    plt.savefig(path + '/plots/august_2020_house_' + str(test_house) + '.png')
+    plt.savefig('august_2020_house_' + str(test_house) + '.png')
     plt.close()
 
 
@@ -177,14 +172,14 @@ def main():
     # Load input arguments
     args = parse_opt()
 
-    model_path = ROOT + "/LSTM/models/" + args.model_name
+    model_path = 'models/' + args.model_name
 
     train_houses = 2
     test_houses = train_houses
 
     # load dataset
 
-    dataset = read_csv(ROOT + '/house_data/cleaned/house{}.csv'.format(train_houses), parse_dates=['timestamp'],
+    dataset = read_csv('../../data/house_data_cleaned/house{}.csv'.format(train_houses), parse_dates=['timestamp'],
                        index_col='timestamp')
 
     x_scaler = StandardScaler()
@@ -268,7 +263,7 @@ def main():
 
     RMSE_all_unseen_houses_august = []
 
-    df_test = pd.read_csv(ROOT + 'house_data/cleaned/house{}.csv'.format(test_houses), parse_dates=['timestamp'],
+    df_test = pd.read_csv('../../data/house_data_cleaned/house{}.csv'.format(test_houses), parse_dates=['timestamp'],
                           index_col='timestamp')
 
     df_test = df_test[['IMPORT_KW', 'HOUR_OF_DAY', 'T', 'TD', 'SQ', 'Q', 'DR', 'U']]
@@ -286,7 +281,7 @@ def main():
     y_pred.append(y_pred_august)
     rmse_august = np.mean(np.sqrt(metrics.mean_squared_error(y_august_true, y_pred_august)))
     RMSE_all_unseen_houses_august.append(rmse_august)
-    plot_pred_vs_true_augsut2020(PLOTS, test_houses, y_true, y_pred, rmse_august)
+    plot_pred_vs_true_augsut2020('plots/', test_houses, y_true, y_pred, rmse_august)
 
     print("RMSE-all-unseen-houses-august: {:.5}".format(
         sum(RMSE_all_unseen_houses_august) / len(RMSE_all_unseen_houses_august)))

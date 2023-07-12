@@ -1,3 +1,16 @@
+## Project setup
+
+First install all required dependencies:
+```commandline
+pip install -r requirements.txt
+```
+Then request data access by sending an email to georgioskarmoiris@gmail.com.
+Get the data by running:
+```commandline
+dvc pull
+```
+For more information regarding DVC please visit https://mathdatasimplified.com/2023/02/20/introduction-to-dvc-data-version-control-tool-for-machine-learning-projects-2/
+
 ## GridFlexHeeten Dataset
 
 The data in this dataset was collected during the GridFlex Heeten project. The data was collected between August 
@@ -11,14 +24,14 @@ exists.
 
 Weather data for the respective period have been retrieved from weather station 278 – Heino, which is 15km from 
 the houses. Source: Royal Dutch Meteorological Institute [KNMI](https://www.knmi.nl/nederland-nu/klimatologie/uurgegevens).
-After retrieval the data should be stored under the folder [weather_data](weather_data).
+After retrieval the data should be stored under the folder [weather_data](data/weather_data).
 
 ## Preprocessing
 
-1. Run script [Clean weather data](preprocessing/clean_weather_data.py) to format weather data properly.
-2. Run script [Remove unnecassary data](preprocessing/remove_unnecessary_data_from_raw_file.py) to keep the data we need and limit GridFlexHeeten Dataset's size.
-3. Run script [Extract houses from raw data](preprocessing/extract_houses_from_raw.py) to separate raw data per house.
-4. Run script [Format house data](preprocessing/format_house_data.py) to combine house's raw data to a single file. We aggregate per hour.
+1. Run script [Clean weather data](src/preprocessing/clean_weather_data.py) to format weather data properly.
+2. Run script [Remove unnecassary data](src/preprocessing/remove_unnecessary_data_from_raw_file.py) to keep the data we need and limit GridFlexHeeten Dataset's size.
+3. Run script [Extract houses from raw data](src/preprocessing/extract_houses_from_raw.py) to separate raw data per house.
+4. Run script [Format house data](src/preprocessing/format_house_data.py) to combine house's raw data to a single file. We aggregate per hour.
 
 ## Data visualization before cleaning
 

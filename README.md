@@ -36,13 +36,17 @@ After retrieval the data should be stored under the folder [weather_data](data/w
 ## Data visualization before cleaning
 
 Data visualization is useful to identify weird patterns or missing data.
-1. Run script [Plot house data](data_visualization/plot_house_data.py) with argument --path 'uncleaned' to visualise data.
+1. Run script [Plot house data](src/data_visualization/plot_house_data.py) with argument --path 'uncleaned' to visualise data.
+
+Result will be stored under plots folder. Here is an example of house 3:
+
+![House 3 uncleaned](plots/house_plots/uncleaned/house3.png)
 
 ## Data cleaning
 
 1. Run script [Replace long periods](data_cleaning/replace-long-period-missing-data.py) for replacing missing periods > 1 week. Example args: --house 3 --missing_data_start_date '2019-04-03 21:00:00' --missing_data_end_date '2019-04-04 21:00:00' --replace_data_start_date '2020-04-03 21:00:00' --replace_data_end_date '2020-04-04 21:00:00'.
 2. Run script [Replace missing values and outlier smoothing](data_cleaning/missing-values-replacement-and-outlier-smoothing.py) Missing values is applied for periods <= 1 week. Smoothing is applied on the whole IMPORT_KW.
-3. Run script [Plot house data](data_visualization/plot_house_data.py) to visualise cleaned houses.
+3. Run script [Plot house data](src/data_visualization/plot_house_data.py) to visualise cleaned houses.
 
 ## Time series analysis
 

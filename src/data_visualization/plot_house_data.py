@@ -11,7 +11,7 @@ def parse_opt():
 
 
 def plot_house_data(house: int, path: str):
-    df = pd.read_csv(r'../house_data/{}/house{}.csv'.format(path, house), parse_dates=['timestamp'],
+    df = pd.read_csv(r'../../data/house_data_{}/house{}.csv'.format(path, house), parse_dates=['timestamp'],
                      index_col='timestamp')
     house_df = df.resample('D').sum()
     house_df.reset_index(inplace=True)
@@ -21,18 +21,16 @@ def plot_house_data(house: int, path: str):
     # Auto space
     plt.tight_layout()
     # Save plot
-    plt.savefig(r'../plots/{}/house{}.png'.format(path, house))
+    plt.savefig(r'../plots/house_plots/{}/house{}.png'.format(path, house))
     plt.close()
 
 
 def main():
     # Load input arguments
     args = parse_opt()
-    for i in range(1, 78):
-        if i == 67:
-            continue
-        else:
-            plot_house_data(i, args.path)
+    houses = [2, 3, 69]
+    for i in houses:
+        plot_house_data(i, args.path)
 
 
 if __name__ == '__main__':

@@ -10,3 +10,4 @@ pydot
 dask
 holidays
 dvc
+dvc_gdrive

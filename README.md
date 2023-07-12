@@ -60,6 +60,8 @@ Result will be stored under plots/house_plots folder. Here is house 3 after clea
 
 Results will be stored under plots/time_series_analysis.
 
+For a thorough timeseries analysis follow the respective notebook [Timeseries analysis on house 3](notebooks/Timeseries_Analysis.ipynb)
+
 ## Short-term load forecasting models
 
 1. Run script [Sarimax](sarimax/sarimax_short-term-load-forecasting.py) --train True for creating and storing a Sarimax model.

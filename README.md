@@ -38,7 +38,7 @@ After retrieval the data should be stored under the folder [weather_data](data/w
 Data visualization is useful to identify weird patterns or missing data.
 1. Run script [Plot house data](src/data_visualization/plot_house_data.py) with argument --path 'uncleaned' to visualise data.
 
-Result will be stored under plots folder. Here is an example of house 3:
+Result will be stored under plots/house_plots folder. Here is an example of house 3:
 
 ![House 3 uncleaned](plots/house_plots/uncleaned/house3.png)
 
@@ -48,15 +48,17 @@ Result will be stored under plots folder. Here is an example of house 3:
 2. Run script [Replace missing values and outlier smoothing](src/data_cleaning/missing-values-replacement-and-outlier-smoothing.py) Missing values is applied for periods <= 1 week. Smoothing is applied on the whole IMPORT_KW.
 3. Run script [Plot house data](src/data_visualization/plot_house_data.py) to visualise cleaned houses.
 
-Result will be stored under plots folder. Here is house 3 after cleaning process:
+Result will be stored under plots/house_plots folder. Here is house 3 after cleaning process:
 
 ![House 3 cleaned](plots/house_plots/cleaned/house3.png)
 
 ## Time series analysis
 
-1. Run script [Create plots](time_series_analysis/create-plots.py) with the different arguments stated within the script.
-2. Run script [Stationary check](time_series_analysis/stationary-check.py) with arguments rolling, adf-kpss.
-3. Run script [Acf - Pacf](time_series_analysis/acf-pacf-plots.py) to plot Autocorrelation and Partial Autocorellation.
+1. Run script [Create plots](src/time_series_analysis/create-plots.py) with the different arguments stated within the script.
+2. Run script [Stationary check](src/time_series_analysis/stationary-check.py) with arguments rolling, adf-kpss.
+3. Run script [Acf - Pacf](src/time_series_analysis/acf-pacf-plots.py) to plot Autocorrelation and Partial Autocorellation.
+
+Results will be stored under plots/time_series_analysis.
 
 ## Short-term load forecasting models
 

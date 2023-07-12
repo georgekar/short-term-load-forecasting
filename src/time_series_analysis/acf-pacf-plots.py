@@ -15,7 +15,7 @@ def parse_opt() -> argparse.Namespace:
 def main():
     # Load input arguments
     args = parse_opt()
-    df = pd.read_csv(r'../house_data/cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
+    df = pd.read_csv(r'../../data/house_data_cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
                      index_col='timestamp')
     consumption = df['IMPORT_KW']
     # Create figure

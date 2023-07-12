@@ -36,7 +36,7 @@ def box_plot_seasonality(df: pd.DataFrame, args: argparse.Namespace) -> None:
     if args.show_plot:
         plt.show()
     if args.save_plot:
-        fig.savefig(r'plots/time_series_analysis/consumption_distribution_by_{}.png'.format(interval))
+        fig.savefig(r'../plots/time_series_analysis/consumption_distribution_by_{}.png'.format(interval))
         plt.close()
 
 
@@ -56,7 +56,7 @@ def consumption_on_holidays(df: pd.DataFrame, args: argparse.Namespace) -> None:
     if args.show_plot:
         plt.show()
     if args.save_plot:
-        fig.savefig(r'plots/time_series_analysis/consumption_on_holidays.png')
+        fig.savefig(r'../plots/time_series_analysis/consumption_on_holidays.png')
         plt.close()
 
 
@@ -81,7 +81,7 @@ def correlation_check(df: pd.DataFrame, args: argparse.Namespace) -> None:
     if args.show_plot:
         plt.show()
     if args.save_plot:
-        fig.savefig(r'plots/time_series_analysis/pearson_correlation_heatmap.png')
+        fig.savefig(r'../plots/time_series_analysis/pearson_correlation_heatmap.png')
         plt.close()
 
 
@@ -128,7 +128,7 @@ def plot_house_data(df: pd.DataFrame, args: argparse.Namespace) -> None:
 def main():
     # Load input arguments
     args = parse_opt()
-    df = pd.read_csv(r'../house_data/cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
+    df = pd.read_csv(r'../../data/house_data_cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
                      index_col='timestamp')
     df.drop(columns=['EXPORT_KW', 'PV_KW', 'BATTERY_KW', 'IX'], inplace=True)
     plot_type = args.plot_type

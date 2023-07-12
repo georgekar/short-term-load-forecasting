@@ -87,7 +87,7 @@ def main():
     # Load input arguments
     args = parse_opt()
     stationary_check = args.stationary_check_type
-    df = pd.read_csv(r'../house_data/cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
+    df = pd.read_csv(r'../../data/house_data_cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
                      index_col='timestamp')
     if stationary_check == 'rolling':
         plot_rolling_mean_and_std(df['IMPORT_KW'], window=7)

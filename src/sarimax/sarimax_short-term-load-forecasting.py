@@ -6,15 +6,11 @@ import time
 import warnings
 import numpy as np
 
-from pathlib import Path
 from sklearn.preprocessing import MinMaxScaler
 from sklearn import metrics
 from matplotlib import pyplot as plt
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 from statsmodels.tsa.statespace.sarimax import SARIMAXResults
-
-FILE = Path(__file__).resolve()
-ROOT = str(FILE.parents[0])  # object_detection root directory
 
 
 def parse_opt():
@@ -114,7 +110,7 @@ def main():
     # Load input arguments
     args = parse_opt()
     # Load dataset
-    df = pd.read_csv(ROOT + '/house_data/cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
+    df = pd.read_csv('../../data/house_data_cleaned/house{}.csv'.format(args.house), parse_dates=['timestamp'],
                      index_col='timestamp')
     exogenous_columns = ['HOUR_OF_DAY', 'T', 'TD', 'SQ', 'Q', 'DR', 'U']
     target_column = ['IMPORT_KW']
@@ -136,7 +132,7 @@ def main():
     x_train = pd.DataFrame(x_train, index=train_df.index, columns=exogenous_columns)
     y_train = pd.DataFrame(y_train, index=train_df.index, columns=[target_column])
     x_test = pd.DataFrame(x_test, index=test_df.index, columns=exogenous_columns)
-    model_path = ROOT + "/sarimax/model/" + args.model_name
+    model_path = 'model/' + args.model_name
     if args.train:
         if os.path.exists(model_path):
             print("Erasing existing model: {}".format(model_path))
